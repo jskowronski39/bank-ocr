@@ -25,7 +25,13 @@ services:
     # as action arguments even if you don't extend any base controller class
     App\Controller\:
         resource: '../src/Controller/'
-        tags: ['controller.service_arguments']
+        tags: [ 'controller.service_arguments' ]
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Service\Ocr\Reader\Reader:
+        arguments:
+            $numberLineLength: '%env(APP_READER_NUMBER_LINE_LENGTH)%'
+            $numberLineHeight: '%env(APP_READER_NUMBER_LINE_HEIGHT)%'
+            $emptyLinesToSkip: '%env(APP_READER_EMPTY_LINES_TO_SKIP)%'

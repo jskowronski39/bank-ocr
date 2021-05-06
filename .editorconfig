@@ -21,3 +21,7 @@ max_line_length = off
 
 [*.md]
 trim_trailing_whitespace = false
+
+[/tests/data/**]
+trim_trailing_whitespace = false
+insert_final_newline = false
