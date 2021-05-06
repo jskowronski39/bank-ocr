@@ -52,3 +52,10 @@ services:
         arguments:
             $illegibleStatus: '%env(APP_WRITER_FORMATTER_ILLEGIBLE_STATUS)%'
             $ambiguousStatus: '%env(APP_WRITER_FORMATTER_AMBIGUOUS_STATUS)%'
+
+    App\Command\OcrRunCommand:
+        arguments:
+            $formatters:
+                default: '@App\Service\Ocr\Writer\Formatter\DefaultFormatter'
+                status: '@App\Service\Ocr\Writer\Formatter\StatusFormatter'
+                ambiguous: '@App\Service\Ocr\Writer\Formatter\AmbiguousFormatter'
